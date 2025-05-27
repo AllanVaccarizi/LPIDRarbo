@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institut du Référencement | Automation</title>
+     <link rel="icon" type="image/png" href="https://institut-du-referencement.com/wp-content/uploads/2022/07/cropped-Institut-du-Referencement-500x500-1-32x32.png">
+    <link rel="shortcut icon" type="image/png" href="https://institut-du-referencement.com/wp-content/uploads/2022/07/cropped-Institut-du-Referencement-500x500-1-32x32.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c2c2c 0%, #4a4a4a 25%, #f4c430 75%, #ffd700 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            max-width: 550px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #f4c430, #ffd700, #2c2c2c);
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 20px;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        .automation-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f4c430, #ffd700);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 8px 25px rgba(244, 196, 48, 0.3);
+        }
+
+        h1 {
+            color: #2c2c2c;
+            margin-bottom: 10px;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .benefits {
+            text-align: left;
+            margin-bottom: 35px;
+            background: linear-gradient(135deg, #f8f8f8, #fff);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #e8e8e8;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .benefit:last-child {
+            margin-bottom: 0;
+        }
+
+        .checkmark {
+            color: #f4c430;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #2c2c2c;
+            font-size: 14px;
+        }
+
+        .required {
+            color: #f4c430;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus {
+            outline: none;
+            border-color: #f4c430;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
+        }
+
+        .contact-choice {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .choice-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #e1e5e9;
+            background: #fafafa;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .choice-btn.active {
+            border-color: #f4c430;
+            background: #fff9e6;
+            color: #2c2c2c;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #f4c430, #ffd700);
+            color: #2c2c2c;
+            border: none;
+            padding: 16px 35px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            box-shadow: 0 8px 25px rgba(244, 196, 48, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(244, 196, 48, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .privacy-note {
+            font-size: 12px;
+            color: #888;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            color: #155724;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+            border: 1px solid #c3e6cb;
+            font-weight: 500;
+        }
+
+        .error-message {
+            display: none;
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            color: #721c24;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+            border: 1px solid #f5c6cb;
+            font-weight: 500;
+        }
+
+        .loading {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #f4c430;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            animation: spin 1s linear infinite;
+            margin: 10px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .linkedin-mention {
+            background: linear-gradient(135deg, #0077b5, #00a0dc);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .linkedin-icon {
+            font-size: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 25px;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .contact-choice {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://institut-du-referencement.com/botwhatsapp/logo-idr-1000x1000.png" alt="Institut du Référencement" class="logo">
+        
+        <div class="automation-icon">🤖</div>
+        
+        <h1>Votre arborescence en quelques clics</h1>
+        <p class="subtitle">Obtenez instantanément l'arborescence complète de n'importe quel site web grâce à notre automation exclusive</p>
+        
+        <div class="linkedin-mention">
+            <span>Vous souhaitez une arborescence de site rapide et automatique ? Vous êtes au bon endroit !</span>
+        </div>
+
+        <div class="benefits">
+            <div class="benefit">
+                <span class="checkmark">⚡</span>
+                <span>Génération automatique d'arborescence multi-niveaux</span>
+            </div>
+            <div class="benefit">
+                <span class="checkmark">🎯</span>
+                <span>Analyse complète depuis une simple URL</span>
+            </div>
+            <div class="benefit">
+                <span class="checkmark">📊</span>
+                <span>Export en formats Excel ou Sheet</span>
+            </div>
+            <div class="benefit">
+                <span class="checkmark">⏱️</span>
+                <span>Résultats en quelques minutes</span>
+            </div>
+            <div class="benefit">
+                <span class="checkmark">🔧</span>
+                <span>Solution 100% automatisée</span>
+            </div>
+        </div>
+
+        <form id="leadForm">
+            <div class="form-group">
+                <label for="firstName">Prénom <span class="required">*</span></label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="lastName">Nom <span class="required">*</span></label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="company">Entreprise <span class="required">*</span></label>
+                <input type="text" id="company" name="company" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Contact professionnel <span class="required">*</span></label>
+                <div class="contact-choice">
+                    <div class="choice-btn active" onclick="selectContactType('email')">📧 Email</div>
+                    <div class="choice-btn" onclick="selectContactType('phone')">📞 Téléphone</div>
+                </div>
+                
+                <input type="email" id="email" name="email" placeholder="votre.email@entreprise.com" required>
+                <input type="tel" id="phone" name="phone" placeholder="01 23 45 67 89" style="display: none;">
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                🚀 Accéder à l'Automation Gratuite
+            </button>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p style="font-size: 14px; color: #666; margin-top: 10px;">Préparation de votre accès...</p>
+            </div>
+        </form>
+
+        <div class="success-message" id="successMessage">
+            <strong>🎉 Parfait !</strong> Vos informations ont été enregistrées. Vous allez recevoir votre lien d'accès à l'automation dans les 5 prochaines minutes sur votre contact professionnel.
+        </div>
+
+        <div class="error-message" id="errorMessage">
+            <strong>❌ Erreur :</strong> Une erreur s'est produite lors de l'envoi. Veuillez réessayer dans quelques instants.
+        </div>
+
+        <p class="privacy-note">
+            🔒 <strong>Institut du Référencement</strong> - Vos données professionnelles sont sécurisées et utilisées uniquement pour vous donner accès à notre automation. Conformité RGPD garantie.
+        </p>
+    </div>
+
+    <script>
+        let currentContactType = 'email';
+
+        function selectContactType(type) {
+            const emailBtn = document.querySelector('.choice-btn:first-child');
+            const phoneBtn = document.querySelector('.choice-btn:last-child');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+
+            currentContactType = type;
+
+            if (type === 'email') {
+                emailBtn.classList.add('active');
+                phoneBtn.classList.remove('active');
+                emailInput.style.display = 'block';
+                phoneInput.style.display = 'none';
+                emailInput.required = true;
+                phoneInput.required = false;
+                phoneInput.value = '';
+            } else {
+                phoneBtn.classList.add('active');
+                emailBtn.classList.remove('active');
+                phoneInput.style.display = 'block';
+                emailInput.style.display = 'none';
+                phoneInput.required = true;
+                emailInput.required = false;
+                emailInput.value = '';
+            }
+        }
+
+        document.getElementById('leadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const loading = document.getElementById('loading');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Reset messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Show loading state
+            submitBtn.style.display = 'none';
+            loading.style.display = 'block';
+            
+            // Collect form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                company: document.getElementById('company').value,
+                contactType: currentContactType,
+                email: currentContactType === 'email' ? document.getElementById('email').value : '',
+                phone: currentContactType === 'phone' ? document.getElementById('phone').value : '',
+                timestamp: new Date().toISOString(),
+                source: 'linkedin-automation-arborescence',
+                campaign: 'arborescence-automation'
+            };
+            
+            try {
+                // REMPLACEZ CETTE URL PAR VOTRE WEBHOOK N8N
+                const webhookUrl = 'https://votre-instance-n8n.com/webhook/automation-arborescence';
+                
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    // Success
+                    successMessage.style.display = 'block';
+                    document.getElementById('leadForm').style.display = 'none';
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                errorMessage.style.display = 'block';
+                submitBtn.style.display = 'block';
+                loading.style.display = 'none';
+            }
+        });
+
+        // Form validation enhancement
+        document.querySelectorAll('input[required]').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() === '') {
+                    this.style.borderColor = '#ff6b6b';
+                } else {
+                    this.style.borderColor = '#f4c430';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
