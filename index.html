@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Institut du Référencement | Automation</title>
-     <link rel="icon" type="image/png" href="https://institut-du-referencement.com/wp-content/uploads/2022/07/cropped-Institut-du-Referencement-500x500-1-32x32.png">
-    <link rel="shortcut icon" type="image/png" href="https://institut-du-referencement.com/wp-content/uploads/2022/07/cropped-Institut-du-Referencement-500x500-1-32x32.png">
+    <title>Votre arborescence en quelques clics | Institut du Référencement</title>
+    <link rel="icon" type="image/png" href="https://institut-du-referencement.com/wp-content/uploads/2022/06/LOGO-IDR-transparent.png">
+    <link rel="shortcut icon" type="image/png" href="https://institut-du-referencement.com/wp-content/uploads/2022/06/LOGO-IDR-transparent.png">
     <style>
         * {
             margin: 0;
@@ -293,14 +293,15 @@
 </head>
 <body>
     <div class="container">
-        <img src="https://institut-du-referencement.com/botwhatsapp/logo-idr-1000x1000.png" alt="IDR" class="logo">
+        <img src="https://institut-du-referencement.com/wp-content/uploads/2022/06/LOGO-IDR-transparent.png" alt="Institut du Référencement" class="logo">
         
-        <div class="automation-icon">🤖</div>
+        <div class="automation-icon">🔗</div>
         
         <h1>Votre arborescence en quelques clics</h1>
         <p class="subtitle">Obtenez instantanément l'arborescence complète de n'importe quel site web grâce à notre automation exclusive</p>
         
         <div class="linkedin-mention">
+            <span class="linkedin-icon">💼</span>
             <span>Vous souhaitez une arborescence de site rapide et automatique ? Vous êtes au bon endroit !</span>
         </div>
 
@@ -315,15 +316,15 @@
             </div>
             <div class="benefit">
                 <span class="checkmark">📊</span>
-                <span>Export en formats Excel ou Sheet</span>
+                <span>Export en formats Excel et visualisation graphique</span>
             </div>
             <div class="benefit">
                 <span class="checkmark">⏱️</span>
-                <span>Résultats en quelques minutes</span>
+                <span>Résultats en quelques minutes au lieu de plusieurs heures</span>
             </div>
             <div class="benefit">
                 <span class="checkmark">🔧</span>
-                <span>Solution 100% automatisée</span>
+                <span>Solution 100% automatisée, aucune intervention manuelle</span>
             </div>
         </div>
 
@@ -344,18 +345,17 @@
             </div>
             
             <div class="form-group">
-                <label>Contact professionnel <span class="required">*</span></label>
-                <div class="contact-choice">
-                    <div class="choice-btn active" onclick="selectContactType('email')">📧 Email</div>
-                    <div class="choice-btn" onclick="selectContactType('phone')">📞 Téléphone</div>
-                </div>
-                
+                <label for="email">Email professionnel <span class="required">*</span></label>
                 <input type="email" id="email" name="email" placeholder="votre.email@entreprise.com" required>
-                <input type="tel" id="phone" name="phone" placeholder="01 23 45 67 89" style="display: none;">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Téléphone professionnel (optionnel)</label>
+                <input type="tel" id="phone" name="phone" placeholder="01 23 45 67 89">
             </div>
 
             <button type="submit" class="submit-btn" id="submitBtn">
-                🚀 Accéder à l'Automation Gratuite
+                🚀 Accéder à l'Automation
             </button>
             
             <div class="loading" id="loading">
@@ -378,35 +378,6 @@
     </div>
 
     <script>
-        let currentContactType = 'email';
-
-        function selectContactType(type) {
-            const emailBtn = document.querySelector('.choice-btn:first-child');
-            const phoneBtn = document.querySelector('.choice-btn:last-child');
-            const emailInput = document.getElementById('email');
-            const phoneInput = document.getElementById('phone');
-
-            currentContactType = type;
-
-            if (type === 'email') {
-                emailBtn.classList.add('active');
-                phoneBtn.classList.remove('active');
-                emailInput.style.display = 'block';
-                phoneInput.style.display = 'none';
-                emailInput.required = true;
-                phoneInput.required = false;
-                phoneInput.value = '';
-            } else {
-                phoneBtn.classList.add('active');
-                emailBtn.classList.remove('active');
-                phoneInput.style.display = 'block';
-                emailInput.style.display = 'none';
-                phoneInput.required = true;
-                emailInput.required = false;
-                emailInput.value = '';
-            }
-        }
-
         document.getElementById('leadForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -428,9 +399,8 @@
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
                 company: document.getElementById('company').value,
-                contactType: currentContactType,
-                email: currentContactType === 'email' ? document.getElementById('email').value : '',
-                phone: currentContactType === 'phone' ? document.getElementById('phone').value : '',
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value || '',
                 timestamp: new Date().toISOString(),
                 source: 'linkedin-automation-arborescence',
                 campaign: 'arborescence-automation'
@@ -438,7 +408,7 @@
             
             try {
                 // REMPLACEZ CETTE URL PAR VOTRE WEBHOOK N8N
-                const webhookUrl = 'https://votre-instance-n8n.com/webhook/automation-arborescence';
+                const webhookUrl = 'https://n8n.srv749948.hstgr.cloud/webhook/66d4343f-50ff-4478-9018-571cc16b0f9a';
                 
                 const response = await fetch(webhookUrl, {
                     method: 'POST',
