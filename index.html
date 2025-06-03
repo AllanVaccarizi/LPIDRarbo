@@ -141,8 +141,7 @@
         }
 
         input[type="text"],
-        input[type="email"],
-        input[type="tel"] {
+        input[type="email"] {
             width: 100%;
             padding: 14px 16px;
             border: 2px solid #e1e5e9;
@@ -154,8 +153,49 @@
         }
 
         input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="tel"]:focus {
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #FF8000;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255, 128, 0, 0.1);
+        }
+
+        .phone-container {
+            display: flex;
+            gap: 8px;
+        }
+
+        .country-select {
+            flex: 0 0 120px;
+            padding: 14px 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Archivo', sans-serif;
+            background: #fafafa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .country-select:focus {
+            outline: none;
+            border-color: #FF8000;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255, 128, 0, 0.1);
+        }
+
+        .phone-input {
+            flex: 1;
+            padding: 14px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Archivo', sans-serif;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .phone-input:focus {
             outline: none;
             border-color: #FF8000;
             background: white;
@@ -307,6 +347,15 @@
                 flex-direction: column;
                 gap: 8px;
             }
+
+            .phone-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .country-select {
+                flex: none;
+            }
         }
     </style>
 </head>
@@ -369,7 +418,109 @@
             
             <div class="form-group">
                 <label for="phone">Téléphone professionnel (optionnel)</label>
-                <input type="tel" id="phone" name="phone" placeholder="01 23 45 67 89">
+                <div class="phone-container">
+                    <select id="countryCode" class="country-select">
+                        <option value="33">🇫🇷 +33</option>
+                        <option value="1">🇺🇸 +1</option>
+                        <option value="44">🇬🇧 +44</option>
+                        <option value="49">🇩🇪 +49</option>
+                        <option value="39">🇮🇹 +39</option>
+                        <option value="34">🇪🇸 +34</option>
+                        <option value="31">🇳🇱 +31</option>
+                        <option value="32">🇧🇪 +32</option>
+                        <option value="41">🇨🇭 +41</option>
+                        <option value="43">🇦🇹 +43</option>
+                        <option value="45">🇩🇰 +45</option>
+                        <option value="46">🇸🇪 +46</option>
+                        <option value="47">🇳🇴 +47</option>
+                        <option value="358">🇫🇮 +358</option>
+                        <option value="351">🇵🇹 +351</option>
+                        <option value="30">🇬🇷 +30</option>
+                        <option value="48">🇵🇱 +48</option>
+                        <option value="420">🇨🇿 +420</option>
+                        <option value="36">🇭🇺 +36</option>
+                        <option value="40">🇷🇴 +40</option>
+                        <option value="359">🇧🇬 +359</option>
+                        <option value="385">🇭🇷 +385</option>
+                        <option value="386">🇸🇮 +386</option>
+                        <option value="421">🇸🇰 +421</option>
+                        <option value="370">🇱🇹 +370</option>
+                        <option value="371">🇱🇻 +371</option>
+                        <option value="372">🇪🇪 +372</option>
+                        <option value="352">🇱🇺 +352</option>
+                        <option value="377">🇲🇨 +377</option>
+                        <option value="376">🇦🇩 +376</option>
+                        <option value="213">🇩🇿 +213</option>
+                        <option value="212">🇲🇦 +212</option>
+                        <option value="216">🇹🇳 +216</option>
+                        <option value="1">🇨🇦 +1</option>
+                        <option value="52">🇲🇽 +52</option>
+                        <option value="55">🇧🇷 +55</option>
+                        <option value="54">🇦🇷 +54</option>
+                        <option value="56">🇨🇱 +56</option>
+                        <option value="57">🇨🇴 +57</option>
+                        <option value="58">🇻🇪 +58</option>
+                        <option value="51">🇵🇪 +51</option>
+                        <option value="598">🇺🇾 +598</option>
+                        <option value="595">🇵🇾 +595</option>
+                        <option value="593">🇪🇨 +593</option>
+                        <option value="591">🇧🇴 +591</option>
+                        <option value="81">🇯🇵 +81</option>
+                        <option value="82">🇰🇷 +82</option>
+                        <option value="86">🇨🇳 +86</option>
+                        <option value="91">🇮🇳 +91</option>
+                        <option value="852">🇭🇰 +852</option>
+                        <option value="65">🇸🇬 +65</option>
+                        <option value="60">🇲🇾 +60</option>
+                        <option value="66">🇹🇭 +66</option>
+                        <option value="84">🇻🇳 +84</option>
+                        <option value="63">🇵🇭 +63</option>
+                        <option value="62">🇮🇩 +62</option>
+                        <option value="61">🇦🇺 +61</option>
+                        <option value="64">🇳🇿 +64</option>
+                        <option value="27">🇿🇦 +27</option>
+                        <option value="20">🇪🇬 +20</option>
+                        <option value="234">🇳🇬 +234</option>
+                        <option value="254">🇰🇪 +254</option>
+                        <option value="255">🇹🇿 +255</option>
+                        <option value="256">🇺🇬 +256</option>
+                        <option value="233">🇬🇭 +233</option>
+                        <option value="221">🇸🇳 +221</option>
+                        <option value="225">🇨🇮 +225</option>
+                        <option value="223">🇲🇱 +223</option>
+                        <option value="226">🇧🇫 +226</option>
+                        <option value="227">🇳🇪 +227</option>
+                        <option value="228">🇹🇬 +228</option>
+                        <option value="229">🇧🇯 +229</option>
+                        <option value="222">🇲🇷 +222</option>
+                        <option value="220">🇬🇲 +220</option>
+                        <option value="224">🇬🇳 +224</option>
+                        <option value="245">🇬🇼 +245</option>
+                        <option value="238">🇨🇻 +238</option>
+                        <option value="239">🇸🇹 +239</option>
+                        <option value="240">🇬🇶 +240</option>
+                        <option value="241">🇬🇦 +241</option>
+                        <option value="242">🇨🇬 +242</option>
+                        <option value="243">🇨🇩 +243</option>
+                        <option value="236">🇨🇫 +236</option>
+                        <option value="235">🇹🇩 +235</option>
+                        <option value="237">🇨🇲 +237</option>
+                        <option value="971">🇦🇪 +971</option>
+                        <option value="966">🇸🇦 +966</option>
+                        <option value="965">🇰🇼 +965</option>
+                        <option value="973">🇧🇭 +973</option>
+                        <option value="974">🇶🇦 +974</option>
+                        <option value="968">🇴🇲 +968</option>
+                        <option value="962">🇯🇴 +962</option>
+                        <option value="961">🇱🇧 +961</option>
+                        <option value="963">🇸🇾 +963</option>
+                        <option value="964">🇮🇶 +964</option>
+                        <option value="98">🇮🇷 +98</option>
+                        <option value="90">🇹🇷 +90</option>
+                        <option value="972">🇮🇱 +972</option>
+                    </select>
+                    <input type="tel" id="phone" name="phone" class="phone-input" placeholder="6 07 60 76 24">
+                </div>
             </div>
 
             <button type="submit" class="submit-btn" id="submitBtn">
@@ -396,6 +547,24 @@
     </div>
 
     <script>
+        // Fonction pour nettoyer et formater le numéro de téléphone
+        function formatPhoneNumber(countryCode, phoneNumber) {
+            if (!phoneNumber || phoneNumber.trim() === '') {
+                return '';
+            }
+            
+            // Supprimer tous les caractères non numériques
+            let cleanPhone = phoneNumber.replace(/\D/g, '');
+            
+            // Si le numéro commence par 0, le supprimer (format national)
+            if (cleanPhone.startsWith('0')) {
+                cleanPhone = cleanPhone.substring(1);
+            }
+            
+            // Retourner l'indicatif + numéro nettoyé
+            return countryCode + cleanPhone;
+        }
+
         document.getElementById('leadForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -412,13 +581,18 @@
             submitBtn.style.display = 'none';
             loading.style.display = 'block';
             
+            // Format phone number
+            const countryCode = document.getElementById('countryCode').value;
+            const phoneInput = document.getElementById('phone').value;
+            const formattedPhone = formatPhoneNumber(countryCode, phoneInput);
+            
             // Collect form data
             const formData = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
                 company: document.getElementById('company').value,
                 email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value || '',
+                phone: formattedPhone,
                 timestamp: new Date().toISOString(),
                 source: 'linkedin-automation-arborescence',
                 campaign: 'arborescence-automation'
@@ -464,6 +638,20 @@
                     this.style.borderColor = '#FF8000';
                 }
             });
+        });
+
+        // Phone input formatting (optional - for better UX)
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            // Format français par défaut (si indicatif +33 sélectionné)
+            const countryCode = document.getElementById('countryCode').value;
+            if (countryCode === '33' && value.length > 0) {
+                // Format: XX XX XX XX XX
+                value = value.replace(/(\d{1})(\d{2})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5');
+            }
+            
+            e.target.value = value;
         });
     </script>
 <script src="https://growth-ai-chatbot.vercel.app/chatbot.js"></script>
